@@ -1,3 +1,4 @@
+import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 
@@ -14,10 +15,12 @@ const CTA = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button size="lg" className="text-lg px-8 py-6 shadow-medium">
-              Solicitar Demonstração
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <DemoRequestDialog>
+              <Button size="lg" className="text-lg px-8 py-6 shadow-medium">
+                Solicitar Demonstração
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </DemoRequestDialog>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6">
               Falar com Especialista
             </Button>

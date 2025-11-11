@@ -1,3 +1,4 @@
+import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
 import logoColor from "@/assets/logo-color.png";
 import logoDark from "@/assets/logo-dark.png";
@@ -31,9 +32,11 @@ const Navbar = () => {
             <Button variant="outline" className="hidden md:inline-flex">
               Login
             </Button>
-            <Button>
-              Demonstração
-            </Button>
+            <DemoRequestDialog>
+              <Button>
+                Demonstração
+              </Button>
+            </DemoRequestDialog>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Satellite, Database, TrendingUp } from "lucide-react";
 import heroImage from "@/assets/hero-agriculture.jpg";
@@ -31,10 +32,12 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6 shadow-strong">
-              Solicitar Demonstração
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <DemoRequestDialog>
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-6 shadow-strong">
+                Solicitar Demonstração
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </DemoRequestDialog>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20">
               Saiba Mais
             </Button>
