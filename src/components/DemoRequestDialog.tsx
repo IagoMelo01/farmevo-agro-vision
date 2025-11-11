@@ -243,7 +243,7 @@ const DemoRequestDialog = ({ children }: DemoRequestDialogProps) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Objetivo com o FarmEvo</Label>
+              <Label>Objetivo com o Farmevo</Label>
               <Select
                 value={formData.objetivo}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, objetivo: value }))}
@@ -257,7 +257,7 @@ const DemoRequestDialog = ({ children }: DemoRequestDialogProps) => {
                   <SelectItem value="Planejamento safra">Planejamento de safra</SelectItem>
                   <SelectItem value="Analise financeira">Análise financeira</SelectItem>
                   <SelectItem value="Monitoramento satelite">Monitoramento via satélite</SelectItem>
-                  <SelectItem value="Compliance ESG">Compliance e ESG</SelectItem>
+                  {/* <SelectItem value="Compliance ESG">Compliance e ESG</SelectItem> */}
                   <SelectItem value="Outro">Outro</SelectItem>
                 </SelectContent>
               </Select>
