@@ -36,6 +36,28 @@ const initialFormState = {
   observacoes: "",
 };
 
+const formatPhoneValue = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (!digits) {
+    return "";
+  }
+  if (digits.length <= 2) {
+    return `(${digits}${digits.length === 2 ? ")" : ""}`;
+  }
+
+  const area = digits.slice(0, 2);
+  const rest = digits.slice(2);
+  const firstPart = rest.slice(0, 5);
+  const secondPart = rest.slice(5);
+
+  let formatted = `(${area}) ${firstPart}`;
+  if (secondPart) {
+    formatted += `-${secondPart}`;
+  }
+
+  return formatted;
+};
+
 const DemoRequestDialog = ({ children }: DemoRequestDialogProps) => {
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
@@ -130,7 +152,7 @@ const DemoRequestDialog = ({ children }: DemoRequestDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-2xl">
+      <DialogContent className="!max-w-[calc(100vw-2rem)] sm:!max-w-2xl max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Solicite uma demonstração personalizada</DialogTitle>
           <DialogDescription>
@@ -172,7 +194,10 @@ const DemoRequestDialog = ({ children }: DemoRequestDialogProps) => {
                 name="telefone"
                 placeholder="(00) 00000-0000"
                 value={formData.telefone}
-                onChange={(event) => setFormData((prev) => ({ ...prev, telefone: event.target.value }))}
+                onChange={(event) => {
+                  const formatted = formatPhoneValue(event.target.value);
+                  setFormData((prev) => ({ ...prev, telefone: formatted }));
+                }}
                 required
               />
             </div>
